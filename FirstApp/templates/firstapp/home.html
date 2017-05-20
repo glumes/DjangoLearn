@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FirstApp</title>
+</head>
+<body>
+Talk is cheap,show me your code !
+
+<br/>
+
+{{ string }}
+
+<br/>
+
+{% for i in TutorialList %}
+{{ i }},
+{% endfor %}
+
+
+<br/>
+
+{% for i in TutorialList %}
+    {{ i }}
+    {% if not forloop.last %}
+        ,
+    {% endif %}
+{% endfor %}
+
+
+</body>
+</html>

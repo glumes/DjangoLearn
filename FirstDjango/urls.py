@@ -15,9 +15,22 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from FirstApp import views
+from FirstApp import views as FirstAppViews
+from calc import views as calcViews
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.index),
+
+    # 自己的视图 View,FirstDjango的视图
+    url(r'^index/', FirstAppViews.index),
+
+    # url(r'^add',calcViews.add),
+    # calc 的视图
+    url(r'^add/$', calcViews.add, name='add'),
+
+    # 根据正则表达式来匹配视图
+    url(r'^add/(\d+)/(\d+)/$', calcViews.add2, name='add2'),
+
+    # 根据模板来配置文件
+    url(r'^home/', FirstAppViews.home, name='home')
 ]
